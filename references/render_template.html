@@ -12,8 +12,16 @@
 <body>
   <div id="root"></div>
 
+  <!-- Pinned UMD build: esm.sh's unpinned "?bundle" of the latest version 404s on a dependency
+       (@braintree/sanitize-url constants.mjs), so the module never loads. The asset path must end
+       in /dist/ for the page font loader to find Cascadia; the SVG's own @font-face URL comes out
+       as //dist/ and 404s, which is harmless because the SVG is inline and uses the page font. -->
+  <script>window.EXCALIDRAW_ASSET_PATH = "https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/";</script>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/excalidraw.production.min.js"></script>
   <script type="module">
-    import { exportToSvg } from "https://esm.sh/@excalidraw/excalidraw?bundle";
+    const { exportToSvg } = window.ExcalidrawLib;
 
     window.renderDiagram = async function(jsonData) {
       try {

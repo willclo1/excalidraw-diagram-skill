@@ -13,11 +13,10 @@ Compatible with any coding agent that supports skills. For agents that read from
 
 ## Installation
 
-Clone or download this repo, then copy it into your project's `.claude/skills/` directory:
+Clone this repo straight into your personal Claude Code skills folder:
 
 ```bash
-git clone https://github.com/coleam00/excalidraw-diagram-skill.git
-cp -r excalidraw-diagram-skill .claude/skills/excalidraw-diagram
+git clone https://github.com/willclo1/excalidraw-diagram-skill.git ~/.claude/skills/excalidraw-diagram
 ```
 
 ## Setup
@@ -31,7 +30,7 @@ Just tell your agent: *"Set up the Excalidraw diagram skill renderer by followin
 **Option B: Manual**
 
 ```bash
-cd .claude/skills/excalidraw-diagram/references
+cd ~/.claude/skills/excalidraw-diagram/references
 uv sync
 uv run playwright install chromium
 ```
